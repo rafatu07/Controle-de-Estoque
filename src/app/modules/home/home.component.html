@@ -1,0 +1,98 @@
+<div class="grid">
+  <div class="flex-container">
+    <div class="form-card">
+      <!-- LOGIN -->
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmitLoginForm()">
+        <p-card
+          styleClass="card-custom"
+          header="Login"
+          subheader="Faça login com sua conta existente!"
+          *ngIf="loginCard"
+        >
+          <div class="input-container">
+            <i class="pi pi-envelope icon"></i>
+            <input
+              type="email"
+              pInputText
+              placeholder="Email"
+              formControlName="email"
+            />
+          </div>
+          <div class="input-container mt-3">
+            <i class="pi pi-lock icon"></i>
+            <input
+              type="password"
+              pInputText
+              placeholder="Senha"
+              formControlName="password"
+            />
+          </div>
+          <div class="card flex justify-content-center mt-3">
+            <button
+              type="submit"
+              pButton
+              pRipple
+              label="Login"
+              [disabled]="!this.loginForm.valid"
+            ></button>
+          </div>
+          <span
+            class="toggle-form"
+            (click)="loginCard = !loginCard"
+          >Criar Conta</span>
+        </p-card>
+      </form>
+
+      <!-- SIGNUP -->
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmitSignupForm()">
+        <p-card
+          styleClass="card-custom"
+          header="Criar conta"
+          subheader="Crie já sua conta gratuita!"
+          *ngIf="!loginCard"
+        >
+          <div class="input-container">
+            <i class="pi pi-user icon"></i>
+            <input
+              type="text"
+              pInputText
+              placeholder="Nome"
+              formControlName="name"
+            />
+          </div>
+          <div class="input-container mt-3">
+            <i class="pi pi-envelope icon"></i>
+            <input
+              type="email"
+              pInputText
+              placeholder="Email"
+              formControlName="email"
+            />
+          </div>
+          <div class="input-container mt-3">
+            <i class="pi pi-lock icon"></i>
+            <input
+              type="password"
+              pInputText
+              placeholder="Senha"
+              formControlName="password"
+            />
+          </div>
+          <div class="card flex justify-content-center mt-3">
+            <button
+              type="submit"
+              pButton
+              pRipple
+              label="Criar conta"
+              [disabled]="!this.signupForm.valid"
+            ></button>
+          </div>
+          <span
+            class="toggle-form"
+            (click)="loginCard = !loginCard"
+          >Fazer login</span>
+        </p-card>
+      </form>
+    </div>
+  </div>
+</div>
