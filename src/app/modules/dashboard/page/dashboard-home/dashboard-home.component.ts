@@ -62,7 +62,7 @@ export class DashboardHomeComponent implements OnInit, OnDestroy {
       const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
 
       this.productsChartDatas = {
-        labels: this.productsList.map((element) => element?.name),
+        labels: this.productsList.map((element) => element?.name ?? ''),
         datasets: [
           {
             label: 'Quantidade',
@@ -70,7 +70,7 @@ export class DashboardHomeComponent implements OnInit, OnDestroy {
             borderColor: documentStyle.getPropertyValue('--indigo-400'),
             hoverBackgroundColor:
               documentStyle.getPropertyValue('--indigo-500'),
-            data: this.productsList.map((element) => element?.amount),
+              data: this.productsList.map((element) => element?.amount ?? 0),
           },
         ],
       };
